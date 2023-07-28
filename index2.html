@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <title>Exchange Rate</title>
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid justify-content-between">
+        <div class="col">
+          <span class="navbar-brand mb-0 h1">ADA Bank</span>
+        </div>
+        <div class="col-2">
+          <select
+            class="form-select form-select"
+            aria-label="Large select example"
+            onchange="handleChangeBaseCurrency(event)"
+          >
+            <option selected value="KGS">KGS</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="KZT">KZT</option>
+            <option value="RUB">RUB</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col">
+          <p class="h1">Калькулятор</p>
+          <div class="row">
+            <div class="input-group mb-3">
+              <input
+                id="firstAmount"
+                type="text"
+                class="form-control"
+                aria-label="Text input with dropdown button"
+                value="1"
+                onchange="calculate('first')"
+              />
+              <select
+                id="firstCurrency"
+                class="form-select form-select"
+                aria-label="Large select example"
+                onchange="calculate('first')"
+                style="max-width: 6rem"
+              >
+                <option selected value="KGS">KGS</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="KZT">KZT</option>
+                <option value="RUB">RUB</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-group mb-3">
+              <input
+                id="secondAmount"
+                type="text"
+                class="form-control"
+                aria-label="Text input with dropdown button"
+                value="1"
+                onchange="calculate('second')"
+              />
+              <select
+                id="secondCurrency"
+                class="form-select form-select"
+                aria-label="Large select example"
+                style="max-width: 6rem"
+                onchange="calculate('second')"
+              >
+                <option value="KGS">KGS</option>
+                <option selected value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="KZT">KZT</option>
+                <option value="RUB">RUB</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p class="h1">Курс обмена</p>
+          <ul id="list-group" class="list-group">
+            <li id="kgs" class="list-group-item">KGS:</li>
+            <li id="usd" class="list-group-item">USD:</li>
+            <li id="eur" class="list-group-item">EUR:</li>
+            <li id="kzt" class="list-group-item">KZT:</li>
+            <li id="rub" class="list-group-item">RUB:</li>
+          </ul>
+          <div id="targetCurrencyInfo"></div>
+        </div>
+      </div>
+    </div>
+    <script src="script2.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
